@@ -1,3 +1,128 @@
+# TabAI - Smart Browser Assistant (Chrome & Safari)
+
+[English](#english) | [中文](#chinese)
+
+<a name="english"></a>
+
+**TabAI** is an AI assistant that brings your browser to life. It not only chats with you but also organizes messy tabs, automatically classifies bookmarks, analyzes browsing habits, and even generates instant summaries of web content.
+
+![TabAI Interface](page/jiemian.png)
+
+> ✨ **Core Feature**: Designed with a global floating ball, it stays in the bottom right corner of any webpage like a co-pilot, always ready to help without interrupting your browsing experience.
+
+## 🌟 Key Features
+
+### 🤖 Global AI Floating Ball
+![Floating Ball](page/jiemian2.png)
+- **Omnipresent**: Click the 🤖 icon in the bottom right corner of any webpage to wake it up.
+- **Instant Response**: Chat directly within the floating ball.
+- **Cross-Tab Sync**: Your conversation state automatically follows you no matter which page you switch to (🚧 Deep context memory optimization in progress).
+
+### 📑 Smart Tab Management
+![Tab Organization](page/zhengli.png)
+- **One-Click Grouping**: AI analyzes your open tabs and automatically groups them by topic.
+- **Auto-Cleanup**: Smartly identifies tabs you haven't viewed in a long time and helps you declutter.
+![AI Actions](page/AI操作.png)
+- **🚧 Semantic Search (In Development)**: "Help me organize coding-related tabs" — natural language commands like this are in development.
+![Action Result](page/image.png)
+
+### 🔖 Native Bookmark Enhancement
+- **AI Classification**: Stop worrying about which folder to save bookmarks in; AI automatically categorizes them for you.
+- **Duplicate Detection**: One-click scan to clean up duplicate links.
+
+### 📊 Browsing Insight
+- **Productivity Analysis**: See where your time goes each day (Work vs. Leisure).
+- **Interest Graph**: Generate personal interest keywords based on your browsing history.
+
+---
+
+## 🗺️ Roadmap
+
+We are actively developing the following features and welcome contributions!
+
+- [ ] **Deep Context Memory**: Allow AI to fully remember conversation history (currently supports recent context).
+- [ ] **Natural Language Control**: Support complex commands like "Move all React-related tabs to the front".
+- [ ] **Tab Drag & Drop**: Drag to reorder tabs directly in the floating panel.
+- [ ] **Bookmark Enhancement**: AI classification and duplicate cleanup.
+- [ ] **Multi-Device Sync**: Sync preferences via cloud.
+
+## ✨ Contribute
+
+This is an open-source project, and we welcome you to help improve it!
+
+- **🌟 Star**: If you find this project interesting, please give us a Star!
+- **🐞 Submit Issue**: Found a bug or have a new idea? Feel free to submit an Issue.
+- **🤝 Pull Request**: Modify the code and submit a PR to become a contributor.
+
+---
+
+## 🚀 Installation Guide
+
+### Chrome / Edge (Recommended)
+
+1. **Download Source**:
+   ```bash
+   git clone https://github.com/kann2kagg/tab-ai.git
+   ```
+
+2. **Load Extension**:
+   - **Chrome**: Open `chrome://extensions/` -> Enable **"Developer mode"** in the top right.
+   - **Edge**: Open `edge://extensions/` -> Enable **"Developer mode"**.
+   - Click **"Load unpacked"** -> Select the `safari-ai-extension` folder.
+
+### macOS Safari
+
+> ⚠️ **Note**: Modern Safari (v14+) no longer supports loading `.json` extensions directly. You must use Xcode to convert it into a native app.
+
+1. **Ensure Xcode is installed** (Download from App Store).
+2. **Run Conversion Command**:
+   Open Terminal and run:
+   ```bash
+   xcrun safari-web-extension-converter /path/to/safari-ai-extension
+   ```
+3. **Run Project**:
+   - Xcode will automatically open the new project.
+   - Click the **Run (▶)** button in the top left.
+   - Enable **TabAI** in Safari Preferences -> **Extensions**.
+
+---
+
+## ⚙️ Quick Start
+
+1. **Configure AI Model**:
+   - The settings page will open automatically after installation (or right-click Floating Ball -> Settings).
+   - Enter your OpenAI API Key (Supports GPT-3.5/4, Claude, or any OpenAI-compatible local LLM).
+   ![Settings Page](page/setting.png)
+
+2. **Start Using**:
+   - Open any webpage and click the **TabAI** floating ball in the bottom right corner.
+   - Try saying: *"Help me organize these coding tabs"*.
+
+---
+
+## 🔒 Privacy Statement
+
+We understand the importance of privacy. TabAI is designed with **"Local First"** principles:
+
+- **0 Data Upload**: Your browsing history and bookmarks are **processed only locally** and will never be uploaded to our servers.
+- **Transparent Interaction**: Text data is sent to your configured API provider (e.g., OpenAI) only when you explicitly ask AI to summarize or classify.
+- **Open Source**: This project is completely open source, so you can audit all code logic.
+
+## 🛠️ Tech Stack
+
+- **Manifest V3**: Compliant with the latest browser extension security standards.
+- **Vanilla JS**: Zero-dependency native development for extreme lightweight and fast startup.
+- **Shadow DOM**: The floating ball uses Shadow DOM technology to ensure styles do not pollute webpages.
+
+---
+
+**TabAI** - Make Browsing Smart Again.
+
+---
+---
+
+<a name="chinese"></a>
+
 # TabAI - 智能浏览器助手 (Safari & Chrome)
 
 **TabAI** 是一个能够让你的浏览器"活"过来的AI助手。它不仅能和你聊天，还能帮你整理杂乱的标签页、自动分类书签、分析浏览习惯，甚至直接对网页内容进行即时摘要。
@@ -22,6 +147,13 @@
 - **🚧 语义搜索 (开发中)**: "帮我把编程相关的标签页整理一下" —— 这种自然语言指令正在开发中。
 ![Action Result](page/image.png)
 
+### 🔖 原生书签增强
+- **AI分类**: 存书签时不再纠结放哪个文件夹，AI自动帮你归类。
+- **重复检测**: 一键扫描并清理重复收藏的链接。
+
+### 📊 浏览行为洞察
+- **生产力分析**: 看看你每天的时间都花在哪了（工作 vs 摸鱼）。
+- **兴趣图谱**: 基于浏览历史生成你的个人兴趣关键词。
 
 ---
 
@@ -33,6 +165,7 @@
 - [ ] **自然语言控车**: 支持 "把所有关于React的标签移到最前面" 这种复杂指令。
 - [ ] **标签页拖拽排序**: 在悬浮面板中直接拖拽调整顺序。
 - [ ] **书签增强**: AI自动帮你归类，一键扫描并清理重复收藏的链接。
+- [ ] **多设备同步**: 通过云端同步你的偏好设置。
 
 ## ✨ 参与贡献
 
@@ -42,12 +175,6 @@
 - **🐞 提交 Issue**: 发现 Bug 或有新点子？欢迎提 Issue。
 - **🤝 Pull Request**: 修改代码并提交 PR，成为贡献者。
 
-- **智能标签**: 自动为书签打上语义标签。
-
-### 📊 浏览行为洞察
-- **生产力分析**: 看看你每天的时间都花在哪了（工作 vs 摸鱼）。
-- **兴趣图谱**: 基于浏览历史生成你的个人兴趣关键词。
-
 ---
 
 ## 🚀 安装指南
@@ -56,7 +183,7 @@
 
 1. **下载源码**:
    ```bash
-   git clone https://github.com/yourusername/tab-ai.git
+   git clone https://github.com/kann2kagg/tab-ai.git
    ```
 
 2. **加载扩展**:
