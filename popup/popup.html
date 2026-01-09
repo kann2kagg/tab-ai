@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI浏览器助手</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    /* Reset defaults */
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>
+        <span class="logo-icon">🤖</span>
+        <span>TabAI</span>
+      </h1>
+      <button id="settings-btn" class="icon-btn" title="设置">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v6m0 6v6m0-18a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Command Bar (Input Form) -->
+    <div class="command-bar" id="command-bar-container">
+      <div class="search-inner" style="width: 100%;">
+        <span class="search-icon">✨</span>
+        <input type="text" id="ai-input" class="ai-input" placeholder="告诉AI你想做什么..." autocomplete="off">
+      </div>
+      <button id="ai-submit-btn" class="icon-btn-micro">↵</button>
+    </div>
+
+    <!-- Chat Result Area (New) -->
+    <div id="chat-result" class="result-box hidden"
+      style="max-height: 300px; margin-bottom: 20px; border-color: var(--neon-purple);"></div>
+
+    <!-- Hero Section (Tabs) -->
+    <div class="hero-section">
+      <div class="hero-card" id="categorize-tabs-btn">
+        <div class="hero-content">
+          <span class="hero-icon">🪄</span>
+          <div>
+            <div class="hero-title">一键智能整理</div>
+            <div class="hero-sub">自动分组 · 清理杂乱</div>
+          </div>
+        </div>
+        <div class="hero-arrow">→</div>
+      </div>
+
+      <div class="hero-actions">
+        <!-- Clean -->
+        <button id="inactive-tabs-btn" class="action-pill" title="清理不活跃">
+          <span>🧹 清理</span>
+        </button>
+        <!-- Save -->
+        <button id="save-tabs-btn" class="action-pill" title="保存为书签">
+          <span>💾 保存</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tools Grid (Secondary) -->
+    <div class="section-title">工具箱</div>
+    <div class="tools-grid-compact">
+      <!-- Summary -->
+      <button id="summarize-brief-btn" class="tool-card-mini">
+        <span class="icon">⚡</span>
+        <span>摘要</span>
+      </button>
+
+      <!-- Bookmarks -->
+      <button id="classify-bookmarks-btn" class="tool-card-mini">
+        <span class="icon">🗂️</span>
+        <span>书签</span>
+      </button>
+
+      <!-- History -->
+      <button id="analyze-history-btn" class="tool-card-mini">
+        <span class="icon">📊</span>
+        <span>分析</span>
+      </button>
+
+      <!-- Extra -->
+      <button id="find-duplicates-btn" class="tool-card-mini">
+        <span class="icon">🔍</span>
+        <span>查重</span>
+      </button>
+    </div>
+
+    <!-- Hidden buttons for JS compatibility -->
+    <div style="display:none;">
+      <button id="summarize-detailed-btn"></button>
+      <button id="view-stats-btn"></button>
+    </div>
+
+    <!-- Results Area -->
+    <div id="tabs-result" class="result-list hidden"></div>
+    <div id="summary-result" class="result-list hidden"></div>
+    <div id="bookmarks-result" class="result-list hidden"></div>
+    <div id="history-result" class="result-list hidden"></div>
+
+    <!-- API Status -->
+    <div id="api-status" class="status-banner hidden">
+      <span id="status-text"></span>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <p>AI正在处理中...</p>
+    </div>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+
+</html>

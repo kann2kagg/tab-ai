@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI浏览器助手 - 设置</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>⚙️ AI浏览器助手 - 设置</h1>
+            <p class="subtitle">配置您的AI浏览器助手</p>
+        </header>
+
+        <!-- API Configuration -->
+        <section class="section">
+            <h2>🔑 API配置</h2>
+            <p class="section-description">配置OpenAI兼容的API接口</p>
+
+            <div class="form-group">
+                <label for="api-base-url">API Base URL</label>
+                <input type="text" id="api-base-url" placeholder="https://api.openai.com/v1"
+                    value="https://api.openai.com/v1">
+                <span class="help-text">API的基础URL地址</span>
+            </div>
+
+            <div class="form-group">
+                <label for="api-key">API Key <span class="required">*</span></label>
+                <input type="password" id="api-key" placeholder="sk-...">
+                <span class="help-text">您的OpenAI API密钥</span>
+            </div>
+
+            <div class="form-group">
+                <label for="api-model">模型</label>
+                <input type="text" id="api-model" placeholder="gpt-3.5-turbo" value="gpt-3.5-turbo">
+                <span class="help-text">输入要使用的AI模型名称（如：gpt-3.5-turbo, gpt-4, claude-3-sonnet等）</span>
+            </div>
+
+            <button id="test-connection-btn" class="btn btn-secondary">
+                🔍 测试连接
+            </button>
+            <div id="test-result" class="test-result hidden"></div>
+        </section>
+
+        <!-- Feature Settings -->
+        <section class="section">
+            <h2>⚡ 功能设置</h2>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="auto-summarize">
+                    <span>自动生成摘要</span>
+                </label>
+                <span class="help-text">访问新页面时自动生成摘要</span>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="auto-classify-bookmarks">
+                    <span>自动分类书签</span>
+                </label>
+                <span class="help-text">添加书签时自动分类</span>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="history-analysis-enabled" checked>
+                    <span>历史分析</span>
+                </label>
+                <span class="help-text">定期分析浏览历史并提供洞察</span>
+            </div>
+
+            <div class="form-group">
+                <label for="tab-inactive-threshold">标签不活跃阈值 (分钟)</label>
+                <input type="number" id="tab-inactive-threshold" value="30" min="5" max="180">
+                <span class="help-text">标签多久未访问视为不活跃</span>
+            </div>
+
+            <div class="form-group">
+                <label for="tab-keep-keywords">保留标签关键字</label>
+                <input type="text" id="tab-keep-keywords" placeholder="例如: github, gmail, chatgpt">
+                <span class="help-text">包含这些关键字的标签页不会被建议关闭（用逗号分隔多个关键字）</span>
+            </div>
+        </section>
+
+        <!-- Privacy -->
+        <section class="section">
+            <h2>🔒 隐私说明</h2>
+            <div class="privacy-notice">
+                <p>✅ 所有数据仅存储在您的浏览器本地</p>
+                <p>✅ API调用通过您配置的密钥直接发送到OpenAI服务器</p>
+                <p>✅ 扩展不会收集或上传任何个人数据</p>
+                <p>✅ 您可以随时清空所有数据</p>
+            </div>
+
+            <button id="clear-all-data-btn" class="btn btn-danger">
+                🗑️ 清空所有数据
+            </button>
+        </section>
+
+        <!-- Save Button -->
+        <div class="save-section">
+            <button id="save-btn" class="btn btn-primary">
+                💾 保存设置
+            </button>
+            <span id="save-status" class="save-status hidden"></span>
+        </div>
+    </div>
+
+    <script src="options.js" type="module"></script>
+</body>
+
+</html>

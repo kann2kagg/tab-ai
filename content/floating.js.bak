@@ -1,0 +1,60 @@
+/**
+ * Floating Ball Content Script
+ * Injects a floating button and handles the popup overlay.
+ */
+
+// Avoid duplicate injection
+if (!document.getElementById('tab-ai-float-btn')) {
+    initFloatingUI();
+}
+
+function initFloatingUI() {
+    // 1. Create Floating Button
+    const btn = document.createElement('div');
+    btn.id = 'tab-ai-float-btn';
+    btn.className = 'tab-ai-float-btn';
+    btn.innerHTML = `
+        <span class="tab-ai-icon">🤖</span>
+        <div class="tab-ai-tooltip">TabAI 助手</div>
+    `;
+
+    // 2. Create Iframe Container (Hidden by default)
+    const iframe = document.createElement('iframe');
+    iframe.id = 'tab-ai-overlay';
+    iframe.className = 'tab-ai-iframe-container';
+    // Point to the popup.html
+    iframe.src = chrome.runtime.getURL('popup/popup.html');
+    iframe.allow = "clipboard-write";
+    iframe.style.display = 'none'; // Initially hidden
+
+    // 3. Mount to DOM
+    document.body.appendChild(btn);
+    document.body.appendChild(iframe);
+
+    // 4. Toggle Logic
+    let isVisible = false;
+
+    btn.addEventListener('click', () => {
+        isVisible = !isVisible;
+
+        if (isVisible) {
+            iframe.classList.add('visible');
+            btn.innerHTML = `<span class="tab-ai-icon">✕</span>`; // Close icon
+        } else {
+            iframe.classList.remove('visible');
+            btn.innerHTML = `<span class="tab-ai-icon">🤖</span>`; // Back to robot
+        }
+    });
+
+    // 5. Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (isVisible &&
+            !btn.contains(e.target) &&
+            !iframe.contains(e.target)) {
+
+            isVisible = false;
+            iframe.classList.remove('visible');
+            btn.innerHTML = `<span class="tab-ai-icon">🤖</span>`;
+        }
+    });
+}

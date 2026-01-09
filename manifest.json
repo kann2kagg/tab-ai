@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "AI Browser Assistant",
+  "version": "1.0.0",
+  "description": "AI-powered browser assistant with intelligent tab management, content summarization, chat assistant, bookmark classification, and history analysis",
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "history",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background-working.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "AI Browser Assistant"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/content-extractor.js",
+        "content/floating.js"
+      ],
+      "css": [
+        "content/floating.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sidebar/sidebar.html",
+        "popup/popup.html",
+        "popup/popup.css",
+        "popup/popup.js",
+        "icons/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
