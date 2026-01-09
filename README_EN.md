@@ -1,6 +1,6 @@
 # AI Browser Assistant
 
-A powerful AI-driven Safari browser extension that provides intelligent tab management, web content summarization, AI chat assistant, smart bookmark classification, and browsing history analysis.
+A powerful AI-driven Chrome browser extension that provides intelligent tab management, web content summarization, AI chat assistant, smart bookmark classification, and browsing history analysis.
 
 ![Extension Icons](icons/icon-128.png)
 
